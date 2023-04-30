@@ -33,7 +33,8 @@ export async function getServerSideProps(): Promise<{
   props: HomeProps
 }> {
   const { data } = await client.query<ResumeQueryType>({
-    query: resumeQuery
+    query: resumeQuery,
+    fetchPolicy: 'no-cache'
   })
 
   return {
