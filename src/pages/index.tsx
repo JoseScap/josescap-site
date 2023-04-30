@@ -1,4 +1,11 @@
-export default function Home() {
+import client from '@/graphql/client'
+import { resumeQuery, ResumeType, ResumeQueryType } from '@/graphql/resume'
+
+interface HomeProps {
+  resumes: ResumeType
+}
+
+export default function Home({ resumes }: HomeProps) {
   return (
     <main className={$heroContainer}>
       <div className={$hero}>
@@ -7,13 +14,33 @@ export default function Home() {
             <h1 className={$heroTitle}>Hola! Me llamo Jose.</h1>
             <p className={$heroDescription}>Fullstack developer con +2 años de experiencia en desarrollo Web, Movil & BE APIs.</p>
             <div>
-              <button className={$heroResumeButton}>Ver CV</button>
+              {
+                resumes.docs.length ? (
+                  <a className={$heroResumeButton} href={resumes.docs[0].url} target='_blank'>Ver CV</a>
+                ) : (
+                  <button className={$disabledHeroResumeButton} disabled>Sin CV</button>
+                )
+              }
             </div>
           </div>
         </div>
       </div>
     </main>
   )
+}
+
+export async function getStaticProps(): Promise<{
+  props: HomeProps
+}> {
+  const { data } = await client.query<ResumeQueryType>({
+    query: resumeQuery
+  })
+
+  return {
+    props: {
+      resumes: data.Resumes
+    }
+  }
 }
 
 const $heroContainer = 'flex min-h-screen flex-col items-center justify-between'
@@ -27,3 +54,4 @@ const $heroTitle = 'text-5xl font-bold text-info'
 const $heroDescription = 'py-6'
 
 const $heroResumeButton = 'btn btn-info btn-outline'
+const $disabledHeroResumeButton = 'btn btn-outline'
