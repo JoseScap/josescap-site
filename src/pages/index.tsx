@@ -6,8 +6,6 @@ interface HomeProps {
 }
 
 export default function Home({ resumes }: HomeProps) {
-  console.log(resumes)
-
   return (
     <main className={$heroContainer}>
       <div className={$hero}>
