@@ -29,7 +29,7 @@ export default function Home({ resumes }: HomeProps) {
   )
 }
 
-export async function getStaticProps(): Promise<{
+export async function getServerSideProps(): Promise<{
   props: HomeProps
 }> {
   const { data } = await client.query<ResumeQueryType>({
