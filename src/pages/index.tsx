@@ -11,7 +11,7 @@ export default function Home({ resumes }: HomeProps) {
       <div className={$hero}>
         <div className={$heroContent}>
           <div>
-            <h1 className={$heroTitle}>Hola! Me llamo Jose.</h1>
+            <h1 className={$heroTitle}>Hola! Me llamo Jose Puente.</h1>
             <p className={$heroDescription}>Fullstack developer con +2 años de experiencia en desarrollo Web, Movil & BE APIs.</p>
             <div>
               {
