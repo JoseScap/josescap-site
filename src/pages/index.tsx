@@ -1,9 +1,11 @@
 import client from '@/graphql/client'
 import { resumeQuery, ResumeType, ResumeQueryType } from '@/graphql/resume'
 import { Hero } from '@/components'
+import { ProjectQueryType, projectQuery, ProjectType } from '@/graphql/projects'
 
 interface HomeProps {
   resumes: ResumeType
+  projects: ProjectType
 }
 
 export default function Home({ resumes }: HomeProps) {
@@ -17,14 +19,19 @@ export default function Home({ resumes }: HomeProps) {
 export async function getServerSideProps(): Promise<{
   props: HomeProps
 }> {
-  const { data } = await client.query<ResumeQueryType>({
+  const { data: { Resumes } } = await client.query<ResumeQueryType>({
     query: resumeQuery,
+    fetchPolicy: 'no-cache'
+  })
+  const { data: { Projects } } = await client.query<ProjectQueryType>({
+    query: projectQuery,
     fetchPolicy: 'no-cache'
   })
 
   return {
     props: {
-      resumes: data.Resumes
+      resumes: Resumes,
+      projects: Projects
     }
   }
 }
