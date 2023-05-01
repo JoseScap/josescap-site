@@ -1,6 +1,6 @@
 import client from '@/graphql/client'
 import { resumeQuery, ResumeType, ResumeQueryType } from '@/graphql/resume'
-import { Hero } from '@/components'
+import { Hero, Projects } from '@/components/Home'
 import { ProjectQueryType, projectQuery, ProjectType } from '@/graphql/projects'
 
 interface HomeProps {
@@ -12,6 +12,7 @@ export default function Home({ resumes }: HomeProps) {
   return (
     <>
       <Hero url={resumes?.docs[0]?.url}/>
+      <Projects />
     </>
   )
 }
