@@ -14,7 +14,7 @@ interface CardProps {
 }
 
 export default function Card({ name, description, technologies, mainImage: { url } }: CardProps) {
-  return <div className="card w-96 bg-base-100 shadow-xl shadow-neutral-900">
+  return <div className="card w-full max-w-sm mx-auto bg-base-100 shadow-xl shadow-neutral-900">
     <figure className="px-10 pt-10">
       <Image src={url} width={200} height={200} alt="Shoes" className="rounded-xl w-full" />
     </figure>
