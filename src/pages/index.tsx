@@ -1,58 +1,38 @@
 import client from '@/graphql/client'
 import { resumeQuery, ResumeType, ResumeQueryType } from '@/graphql/resume'
+import { Hero, Projects } from '@/components/Home'
+import { ProjectQueryType, projectQuery, ProjectType } from '@/graphql/projects'
 
 interface HomeProps {
   resumes: ResumeType
+  projects: ProjectType
 }
 
-export default function Home({ resumes }: HomeProps) {
+export default function Home({ resumes, projects }: HomeProps) {
   return (
-    <main className={$heroContainer}>
-      <div className={$hero}>
-        <div className={$heroContent}>
-          <div>
-            <h1 className={$heroTitle}>Hola! Me llamo Jose Puente.</h1>
-            <p className={$heroDescription}>Fullstack developer con +2 años de experiencia en desarrollo Web, Movil & BE APIs.</p>
-            <div>
-              {
-                resumes.docs.length ? (
-                  <a className={$heroResumeButton} href={resumes.docs[0].url} target='_blank'>Ver CV</a>
-                ) : (
-                  <button className={$disabledHeroResumeButton} disabled>Sin CV</button>
-                )
-              }
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
+    <>
+      <Hero url={resumes?.docs[0]?.url}/>
+      <Projects projects={projects}/>
+    </>
   )
 }
 
 export async function getServerSideProps(): Promise<{
   props: HomeProps
 }> {
-  const { data } = await client.query<ResumeQueryType>({
+  const { data: { Resumes } } = await client.query<ResumeQueryType>({
     query: resumeQuery,
+    fetchPolicy: 'no-cache'
+  })
+  const { data: { Projects } } = await client.query<ProjectQueryType>({
+    query: projectQuery,
     fetchPolicy: 'no-cache'
   })
 
   return {
     props: {
-      resumes: data.Resumes
+      resumes: Resumes,
+      projects: Projects
     }
   }
 }
-
-const $heroContainer = 'flex min-h-screen flex-col items-center justify-between'
-
-const $hero = 'hero min-h-screen bg-base-200'
-
-const $heroContent = 'hero-content text-center'
-
-const $heroTitle = 'text-5xl font-bold text-info'
-
-const $heroDescription = 'py-6'
-
-const $heroResumeButton = 'btn btn-info btn-outline'
-const $disabledHeroResumeButton = 'btn btn-outline'
