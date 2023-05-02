@@ -8,11 +8,11 @@ interface HomeProps {
   projects: ProjectType
 }
 
-export default function Home({ resumes }: HomeProps) {
+export default function Home({ resumes, projects }: HomeProps) {
   return (
     <>
       <Hero url={resumes?.docs[0]?.url}/>
-      <Projects />
+      <Projects projects={projects}/>
     </>
   )
 }
