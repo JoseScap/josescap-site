@@ -65,3 +65,23 @@ query {
     }
   }
 `
+
+export interface ProjectByIdQueryType {
+    Project: ProjectByIdType
+}
+
+export interface ProjectByIdType {
+    id: string
+    name: string
+    description: string
+}
+
+export const projectByIdQuery = gql`
+    query GetProject($id: String!) {
+        Project(id: $id) {
+            id
+            name
+            description
+        }
+    }
+`
