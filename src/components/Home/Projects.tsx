@@ -13,8 +13,8 @@ export default function Projects({ projects }: ProjectsProps) {
     </p>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {
-        projects.docs.map(({name, description, technologies, mainImage}, idx) => (
-          <Card name={name} description={description} technologies={technologies} mainImage={mainImage} key={idx}/>
+        projects.docs.map(({id, name, description, technologies, mainImage}, idx) => (
+          <Card id={id} name={name} description={description} technologies={technologies} mainImage={mainImage} key={idx}/>
         ))
       }
     </div>
