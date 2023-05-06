@@ -6,6 +6,7 @@ export interface ProjectQueryType {
 
 export interface ProjectType {
     docs: {
+        id: string
         name: string
         description: string
         technologies: {
@@ -37,6 +38,7 @@ export const projectQuery = gql`
 query {
     Projects {
         docs {
+            id
             name
             description
             technologies {
@@ -64,4 +66,50 @@ query {
         }
     }
   }
+`
+
+export interface ProjectByIdQueryType {
+    Project: ProjectByIdType
+}
+
+export interface ProjectByIdType {
+    id: string
+    name: string
+    description: string
+    technologies: {
+        technology: {
+            name: string
+        }
+    }[]
+    repositories: {
+        name: string
+        url: string
+    }[]
+    demos: {
+        name: string
+        url: string
+    }[]
+}
+
+export const projectByIdQuery = gql`
+    query GetProject($id: String!) {
+        Project(id: $id) {
+            id
+            name
+            description
+            technologies {
+                technology {
+                    name
+                }
+            }
+            repositories {
+                name
+                url
+            }
+            demos {
+                name
+                url
+            }
+        }
+    }
 `

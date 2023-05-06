@@ -1,0 +1,127 @@
+import client from '@/graphql/client'
+import { ProjectByIdQueryType, ProjectByIdType, projectByIdQuery } from '@/graphql/projects'
+import { GetServerSidePropsContext, GetServerSidePropsResult } from 'next'
+import { ParsedUrlQuery } from 'querystring'
+
+interface ProjectProps {
+    project: ProjectByIdType
+}
+
+interface ProjectUrlParams extends ParsedUrlQuery {
+  id: string
+}
+
+export default function Project({ project }: ProjectProps) {
+  const { name, description, technologies, repositories, demos } = project
+  
+  return <div className={$projectContainer}>
+    <h1 className={$projectTitle}>{name}</h1>
+    <section className={$projectSection}>
+      <h2 className={$projectSectionTitle}>Descripcion</h2>
+      <p className={$projectDescription}>{description}</p>
+    </section>
+    <section className={$projectSection}>
+      <h3 className={$projectSectionTitle}>Tecnologias usadas</h3>
+      <div className={$projectTechnologyWrapper}>
+        {
+          technologies.map(({ technology }, idx) => (
+            <strong className={$projectTechnologyBadge} key={idx}>{technology.name}</strong>
+          ))
+        }
+      </div>
+    </section>
+    <section className={$projectSection}>
+      <h3 className={$projectSectionTitle}>Repositorios</h3>
+      <div className={$projectRepositoryWrapper}>
+        {
+          repositories.map(({ name, url }, idx) => (<div className={idx < repositories.length - 1 ? 'mb-4' : ''} key={idx}>
+            <h5>
+              {name}
+            </h5>
+            <a className={$projectRepositoryLink} href={url} target='_blank'>Repositorio: {url}</a>
+          </div>))
+        }
+      </div>
+    </section>
+    <section className={$projectSection}>
+      <h3 className={$projectSectionTitle}>Demos</h3>
+      <div className={$projectRepositoryWrapper}>
+        {
+          demos.map(({ name, url }, idx) => (<div className={idx < demos.length - 1 ? 'mb-4' : ''} key={idx}>
+            <h5>
+              {name}
+            </h5>
+            <a className={$projectRepositoryLink} href={url} target='_blank'>Repositorio: {url}</a>
+          </div>))
+        }
+      </div>
+    </section>
+  </div>
+}
+
+const $projectContainer = 'w-11/12 mx-auto max-w-4xl py-12 shadow-xl min-h-screen'
+
+const $projectTitle = 'text-center font-bold text-3xl text-info'
+
+const $projectSection = 'mx-8 mt-8'
+const $projectSectionTitle = 'text-xl text-info font-semibold'
+
+const $projectDescription = 'text-justify mt-4'
+
+const $projectTechnologyWrapper = 'mt-4'
+const $projectTechnologyBadge = 'badge badge-outline badge-accent me-2 font-normal'
+
+const $projectRepositoryWrapper = 'mt-4'
+const $projectRepositoryLink = 'hover:text-info transition-all'
+
+export async function getServerSideProps(context: GetServerSidePropsContext<ProjectUrlParams>): Promise<GetServerSidePropsResult<ProjectProps>> {
+  if (!context.params?.id)
+    return {
+      redirect: {
+        destination: 'error',
+        permanent: false
+      }
+    }
+
+  if (context.params.id.length < 24)
+    return {
+      redirect: {
+        destination: 'error',
+        permanent: false
+      }
+    }
+
+  try {
+    const { id } = context.params
+    const { data: { Project }, errors } = await client.query<ProjectByIdQueryType>({
+      query: projectByIdQuery,
+      variables: { id: id },
+      fetchPolicy: 'no-cache'
+    })
+
+    if (errors)
+      return {
+        redirect: {
+          destination: 'error',
+          permanent: false
+        }
+      }
+
+    return {
+      props: {
+        project: Project
+      }
+    }
+  } catch (error) {
+    return {
+      redirect: {
+        destination: 'error',
+        permanent: false
+      }
+    }
+  }
+
+  
+
+  
+}
