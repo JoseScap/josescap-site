@@ -1,6 +1,7 @@
 import client from '@/graphql/client'
 import { ProjectByIdQueryType, ProjectByIdType, projectByIdQuery } from '@/graphql/projects'
 import { GetServerSidePropsContext, GetServerSidePropsResult } from 'next'
+import Image from 'next/image'
 import { ParsedUrlQuery } from 'querystring'
 
 interface ProjectProps {
@@ -12,9 +13,12 @@ interface ProjectUrlParams extends ParsedUrlQuery {
 }
 
 export default function Project({ project }: ProjectProps) {
-  const { name, description, technologies, repositories, demos } = project
+  const { name, description, technologies, repositories, demos, mainImage } = project
   
   return <div className={$projectContainer}>
+    <figure className={$projectMainImageWrapper}>
+      <Image src={mainImage.url} width={1000} height={500} alt="Shoes" className={$projectMainImage} />
+    </figure>
     <h1 className={$projectTitle}>{name}</h1>
     <section className={$projectSection}>
       <h2 className={$projectSectionTitle}>Descripcion</h2>
@@ -51,7 +55,7 @@ export default function Project({ project }: ProjectProps) {
             <h5>
               {name}
             </h5>
-            <a className={$projectRepositoryLink} href={url} target='_blank'>Repositorio: {url}</a>
+            <a className={$projectRepositoryLink} href={url} target='_blank'>Demo: {url}</a>
           </div>))
         }
       </div>
@@ -61,7 +65,10 @@ export default function Project({ project }: ProjectProps) {
 
 const $projectContainer = 'w-11/12 mx-auto max-w-4xl py-12 shadow-xl min-h-screen'
 
-const $projectTitle = 'text-center font-bold text-3xl text-info'
+const $projectMainImageWrapper = 'mx-8'
+const $projectMainImage = 'rounded-xl w-full'
+
+const $projectTitle = 'text-center font-bold text-3xl text-info mt-6'
 
 const $projectSection = 'mx-8 mt-8'
 const $projectSectionTitle = 'text-xl text-info font-semibold'

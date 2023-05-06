@@ -89,6 +89,9 @@ export interface ProjectByIdType {
         name: string
         url: string
     }[]
+    mainImage: {
+        url: string
+    }
 }
 
 export const projectByIdQuery = gql`
@@ -108,6 +111,9 @@ export const projectByIdQuery = gql`
             }
             demos {
                 name
+                url
+            }
+            mainImage {
                 url
             }
         }
