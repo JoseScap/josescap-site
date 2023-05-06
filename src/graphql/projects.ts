@@ -76,6 +76,19 @@ export interface ProjectByIdType {
     id: string
     name: string
     description: string
+    technologies: {
+        technology: {
+            name: string
+        }
+    }[]
+    repositories: {
+        name: string
+        url: string
+    }[]
+    demos: {
+        name: string
+        url: string
+    }[]
 }
 
 export const projectByIdQuery = gql`
@@ -84,6 +97,19 @@ export const projectByIdQuery = gql`
             id
             name
             description
+            technologies {
+                technology {
+                    name
+                }
+            }
+            repositories {
+                name
+                url
+            }
+            demos {
+                name
+                url
+            }
         }
     }
 `
