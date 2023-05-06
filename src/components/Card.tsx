@@ -18,7 +18,7 @@ interface CardProps {
 export default function Card({ id, name, description, technologies, mainImage: { url } }: CardProps) {
   return <div className={$card}>
     <figure className={$cardImageWrapper}>
-      <Image src={url} width={200} height={200} alt="Shoes" className={$cardImage} />
+      <Image src={url} width={400} height={200} alt="Shoes" className={$cardImage} />
     </figure>
     <div className={$cardBody}>
       <h2 className={$cardTitle}>{name}</h2>
