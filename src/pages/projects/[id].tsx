@@ -13,7 +13,7 @@ interface ProjectUrlParams extends ParsedUrlQuery {
 }
 
 export default function Project({ project }: ProjectProps) {
-  const { name, description, technologies, repositories, demos, mainImage } = project
+  const { name, description, technologies, repositories, demos, mainImage, images } = project
   
   return <div className={$projectContainer}>
     <figure className={$projectMainImageWrapper}>
@@ -57,6 +57,18 @@ export default function Project({ project }: ProjectProps) {
             </h5>
             <a className={$projectRepositoryLink} href={url} target='_blank'>Demo: {url}</a>
           </div>))
+        }
+      </div>
+    </section>
+    <section className={$projectSection}>
+      <h3 className={$projectSectionTitle}>Galeria</h3>
+      <div>
+        {
+          images.map(({ image }, idx) => (
+            <figure key={idx}>
+              <Image src={image.url} width={1000} height={500} alt="Shoes" className={$projectMainImage} />
+            </figure>
+          ))
         }
       </div>
     </section>
