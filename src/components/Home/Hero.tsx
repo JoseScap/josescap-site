@@ -9,14 +9,14 @@ export default function Hero({ url }: HeroProps) {
         <div>
           <h1 className={$heroTitle}>Hola! Me llamo Jose Puente.</h1>
           <p className={$heroDescription}>
-            Soy un desarrollador de software con más de 2 años de experiencia en el campo. Mi enfoque principal es
-            en el desarrollo de aplicaciones weby móviles, utilizando tecnologías como ReactJS, ReactNative, y el
-            desarrollo de APIs REST y GraphQL. Además, tengo amplios conocimientos en Javascript, NodeJS, Java y
+            Soy un desarrollador de software con más de <span className={$highlight}>2 años de experiencia en el campo</span>. Mi enfoque principal es
+            en el desarrollo de <span className={$highlight}>aplicaciones web y móviles</span>, utilizando tecnologías como <span className={$highlight}>ReactJS, ReactNative</span>. Tambien el
+            desarrollo de <span className={$highlight}>APIs REST y GraphQL</span>. Además, tengo amplios conocimientos en Javascript, NodeJS, Java y
             Springboot. Me enorgullezco de ofrecer soluciones de software eficientes y personalizadas que satisfacen
             las necesidades específicas de cada cliente.
           </p>
           <p className={$heroCallToAction}>
-            Si estás buscando un desarrollador con habilidades técnicas y creativas, <span className={$highlight}>¡no dudes en contactarme!</span>
+            Si estás buscando un <span className={$highlight}>desarrollador con habilidades técnicas y creativas</span>, ¡no dudes en contactarme!
           </p>
           <div>
             {
@@ -36,7 +36,7 @@ export default function Hero({ url }: HeroProps) {
 
 const $heroContainer = 'flex min-h-screen flex-col items-center justify-between'
 
-const $hero = 'hero min-h-screen bg-base-200'
+const $hero = 'hero min-h-screen hero-bottom'
 
 const $heroContent = 'hero-content text-center'
 

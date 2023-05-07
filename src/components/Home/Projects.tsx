@@ -9,7 +9,7 @@ export default function Projects({ projects }: ProjectsProps) {
   return <section className={$projectContainer}>
     <h2 className={$projectSectionTitle}>Proyectos</h2>
     <p className={$projectSubtitle}>
-        Aqui mis proyectos personales con los cuales estoy desarollando mis habilidades.
+          Aqui mis proyectos personales con los cuales estoy desarollando mis habilidades.
     </p>
     <div className={$projectGrid}>
       {
