@@ -6,7 +6,7 @@ interface ProjectsProps {
 }
 
 export default function Projects({ projects }: ProjectsProps) {
-  return <section className={$projectContainer}>
+  return <section className={$projectContainer} id='projects'>
     <h2 className={$projectSectionTitle}>Proyectos</h2>
     <p className={$projectSubtitle}>
           Aqui mis proyectos personales con los cuales estoy desarollando mis habilidades.

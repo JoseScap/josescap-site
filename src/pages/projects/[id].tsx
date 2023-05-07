@@ -22,7 +22,7 @@ export default function Project({ project }: ProjectProps) {
 
   return <div className={$projectContainer}>
     <figure className={$projectMainImageWrapper}>
-      <Image src={mainImage.url} width={1000} height={500} alt="Shoes" className={$projectMainImage} />
+      <Image src={mainImage.url} width={1500} height={750} alt="Shoes" className={$projectMainImage} />
     </figure>
     <h1 className={$projectTitle}>{name}</h1>
     <section className={$projectSection}>
@@ -74,7 +74,7 @@ export default function Project({ project }: ProjectProps) {
   </div>
 }
 
-const $projectContainer = 'w-11/12 mx-auto max-w-4xl py-12 shadow-xl min-h-screen'
+const $projectContainer = 'w-11/12 mx-auto max-w-7xl py-12 shadow-xl min-h-screen'
 
 const $projectMainImageWrapper = 'border-b-2 border-t-2'
 const $projectMainImage = 'w-full'
