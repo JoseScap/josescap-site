@@ -7,3 +7,21 @@
 body, a, span {
     font-family: 'Poppins', sans-serif;
 }
+
+.hero-bottom {
+    aspect-ratio: 900/450;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url('../assets/hero-bottom.svg');
+}
+
+.project-section-top {
+    aspect-ratio: 900/450;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-image: url('../assets/project-section-top.svg');
+}

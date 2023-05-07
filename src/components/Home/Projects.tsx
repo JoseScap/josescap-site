@@ -6,22 +6,24 @@ interface ProjectsProps {
 }
 
 export default function Projects({ projects }: ProjectsProps) {
-  return <section className={$projectContainer}>
-    <h2 className={$projectSectionTitle}>Proyectos</h2>
-    <p className={$projectSubtitle}>
-        Aqui mis proyectos personales con los cuales estoy desarollando mis habilidades.
-    </p>
-    <div className={$projectGrid}>
-      {
-        projects.docs.map(({id, name, description, technologies, mainImage}, idx) => (
-          <Card id={id} name={name} description={description} technologies={technologies} mainImage={mainImage} key={idx}/>
-        ))
-      }
-    </div>
-  </section>
+  return <div className='project-section-top'>
+    <section className={$projectContainer}>
+      <h2 className={$projectSectionTitle}>Proyectos</h2>
+      <p className={$projectSubtitle}>
+          Aqui mis proyectos personales con los cuales estoy desarollando mis habilidades.
+      </p>
+      <div className={$projectGrid}>
+        {
+          projects.docs.map(({id, name, description, technologies, mainImage}, idx) => (
+            <Card id={id} name={name} description={description} technologies={technologies} mainImage={mainImage} key={idx}/>
+          ))
+        }
+      </div>
+    </section>
+  </div>
 }
 
-const $projectContainer = 'w-11/12 max-w-7xl mx-auto py-12'
+const $projectContainer = 'w-11/12 max-w-7xl mx-auto pt-72'
 
 const $projectSectionTitle = 'text-center text-5xl text-info font-bold'
 

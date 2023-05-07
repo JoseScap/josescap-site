@@ -36,7 +36,7 @@ export default function Hero({ url }: HeroProps) {
 
 const $heroContainer = 'flex min-h-screen flex-col items-center justify-between'
 
-const $hero = 'hero min-h-screen bg-base-200'
+const $hero = 'hero min-h-screen hero-bottom'
 
 const $heroContent = 'hero-content text-center'
 
