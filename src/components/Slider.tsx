@@ -41,7 +41,7 @@ export default function Slider({ images }: SliderProps) {
       {
         images.map((image, idx) => (
           <figure key={idx} style={{ ...$imageWrapper, ...$transform }}>
-            <Image src={image} width={1000} height={500} alt="Shoes" />
+            <Image src={image} width={1500} height={750} alt="Shoes" />
           </figure>
         ))
       }
