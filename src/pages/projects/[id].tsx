@@ -74,7 +74,7 @@ export default function Project({ project }: ProjectProps) {
   </div>
 }
 
-const $projectContainer = 'w-11/12 mx-auto max-w-7xl py-12 shadow-xl min-h-screen'
+const $projectContainer = 'w-11/12 mx-auto max-w-7xl pt-24 pb-12 shadow-xl min-h-screen'
 
 const $projectMainImageWrapper = 'border-b-2 border-t-2'
 const $projectMainImage = 'w-full'
