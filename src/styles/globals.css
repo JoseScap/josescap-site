@@ -4,7 +4,9 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-body, a, span {
+body,
+a,
+span {
     font-family: 'Poppins', sans-serif;
 }
 
@@ -14,14 +16,30 @@ body, a, span {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    background-image: url('../assets/hero-bottom.svg');
+    background-image: url('../assets/hero-bottom-small.svg');
 }
 
-.project-section-top {
-    aspect-ratio: 900/450;
-    width: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-image: url('../assets/project-section-top.svg');
+
+@media screen and (min-width: 480px) {
+    .hero-bottom {
+        background-image: url('../assets/hero-bottom-medium.svg');
+    }
+}
+
+@media screen and (min-width: 576px) {
+    .hero-bottom {
+        background-image: url('../assets/hero-bottom-large.svg');
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .hero-bottom {
+        background-image: url('../assets/hero-bottom-xlarge.svg');
+    }
+}
+
+@media screen and (min-width: 1440px) {
+    .hero-bottom {
+        background-image: url('../assets/hero-bottom-xxlarge.svg');
+    }
 }
