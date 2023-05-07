@@ -1,8 +1,10 @@
+import { Slider } from '@/components'
 import client from '@/graphql/client'
 import { ProjectByIdQueryType, ProjectByIdType, projectByIdQuery } from '@/graphql/projects'
 import { GetServerSidePropsContext, GetServerSidePropsResult } from 'next'
 import Image from 'next/image'
 import { ParsedUrlQuery } from 'querystring'
+import { useMemo } from 'react'
 
 interface ProjectProps {
     project: ProjectByIdType
@@ -14,7 +16,10 @@ interface ProjectUrlParams extends ParsedUrlQuery {
 
 export default function Project({ project }: ProjectProps) {
   const { name, description, technologies, repositories, demos, mainImage, images } = project
-  
+  const mappedImages = useMemo<string[]>(() => (
+    images.map(({ image }) => image.url)
+  ), [images])
+
   return <div className={$projectContainer}>
     <figure className={$projectMainImageWrapper}>
       <Image src={mainImage.url} width={1000} height={500} alt="Shoes" className={$projectMainImage} />
@@ -36,7 +41,7 @@ export default function Project({ project }: ProjectProps) {
     </section>
     <section className={$projectSection}>
       <h3 className={$projectSectionTitle}>Repositorios</h3>
-      <div className={$projectRepositoryWrapper}>
+      <div className={$projectSectionContentWrapper}>
         {
           repositories.map(({ name, url }, idx) => (<div className={idx < repositories.length - 1 ? 'mb-4' : ''} key={idx}>
             <h5>
@@ -49,7 +54,7 @@ export default function Project({ project }: ProjectProps) {
     </section>
     <section className={$projectSection}>
       <h3 className={$projectSectionTitle}>Demos</h3>
-      <div className={$projectRepositoryWrapper}>
+      <div className={$projectSectionContentWrapper}>
         {
           demos.map(({ name, url }, idx) => (<div className={idx < demos.length - 1 ? 'mb-4' : ''} key={idx}>
             <h5>
@@ -62,14 +67,8 @@ export default function Project({ project }: ProjectProps) {
     </section>
     <section className={$projectSection}>
       <h3 className={$projectSectionTitle}>Galeria</h3>
-      <div>
-        {
-          images.map(({ image }, idx) => (
-            <figure key={idx}>
-              <Image src={image.url} width={1000} height={500} alt="Shoes" className={$projectMainImage} />
-            </figure>
-          ))
-        }
+      <div className={$projectSectionContentWrapper}>
+        <Slider images={mappedImages} />
       </div>
     </section>
   </div>
@@ -90,7 +89,7 @@ const $projectDescription = 'text-justify mt-4'
 const $projectTechnologyWrapper = 'mt-4'
 const $projectTechnologyBadge = 'badge badge-outline badge-accent me-2 font-normal'
 
-const $projectRepositoryWrapper = 'mt-4'
+const $projectSectionContentWrapper = 'mt-4'
 const $projectRepositoryLink = 'hover:text-info transition-all'
 
 export async function getServerSideProps(context: GetServerSidePropsContext<ProjectUrlParams>): Promise<GetServerSidePropsResult<ProjectProps>> {
