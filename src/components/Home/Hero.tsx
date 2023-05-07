@@ -9,8 +9,8 @@ export default function Hero({ url }: HeroProps) {
         <div>
           <h1 className={$heroTitle}>Hola! Me llamo Jose Puente.</h1>
           <p className={$heroDescription}>
-            Soy un desarrollador de software con más de <span className={$highlight}>2 años de experiencia</span> en el campo. Mi enfoque principal es
-            en el desarrollo de aplicaciones <span className={$highlight}>web y móviles</span>, utilizando tecnologías como <span className={$highlight}>ReactJS, ReactNative</span>. Tambien el
+            Soy un desarrollador de software con más de <span className={$highlight}>2 años de experiencia en el campo</span>. Mi enfoque principal es
+            en el desarrollo de <span className={$highlight}>aplicaciones web y móviles</span>, utilizando tecnologías como <span className={$highlight}>ReactJS, ReactNative</span>. Tambien el
             desarrollo de <span className={$highlight}>APIs REST y GraphQL</span>. Además, tengo amplios conocimientos en Javascript, NodeJS, Java y
             Springboot. Me enorgullezco de ofrecer soluciones de software eficientes y personalizadas que satisfacen
             las necesidades específicas de cada cliente.
