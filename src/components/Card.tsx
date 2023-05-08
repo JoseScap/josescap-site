@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { IconFileCode } from '@tabler/icons-react'
 
 interface CardProps {
   id: string
@@ -41,6 +42,7 @@ export default function Card({ id, name, description, technologies, mainImage: {
           className={$cardLink}
         >
           Ver más
+          <IconFileCode />
         </Link>
       </div>
     </div>
@@ -63,4 +65,4 @@ const $cardBadge = 'badge badge-outline badge-accent mx-2'
 
 const $cardActions = 'card-actions mt-4 w-full'
 
-const $cardLink = 'btn btn-info btn-outline w-3/4 mx-auto'
+const $cardLink = 'btn btn-info btn-outline w-3/4 mx-auto gap-2'

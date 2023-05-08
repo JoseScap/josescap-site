@@ -1,3 +1,5 @@
+import { IconFileInvoice, IconBrandLinkedin, IconBrandGithub } from '@tabler/icons-react'
+
 interface HeroProps {
   url?: string | undefined
 }
@@ -21,12 +23,22 @@ export default function Hero({ url }: HeroProps) {
           <div>
             {
               url ? (
-                <a className={$heroResumeButton} href={url} target='_blank'>Ver CV</a>
+                <a className={$heroResumeButton} href={url} target='_blank'>
+                  Ver CV
+                  <IconFileInvoice />
+                </a>
               ) : (
                 <button className={$disabledHeroResumeButton} disabled>Sin CV</button>
               )
             }
-            <button className={$disabledWorkTogetherButton} disabled>Trabajemos juntos!</button>
+            <a className={$heroLinkedinButton} href='https://www.linkedin.com/in/josescap/' target='_blank'>
+              Linkedin
+              <IconBrandLinkedin />
+            </a>
+            <a className={$heroGithubButton} href='https://github.com/JoseScap' target='_blank'>
+              Github
+              <IconBrandGithub />
+            </a>
           </div>
         </div>
       </div>
@@ -47,8 +59,8 @@ const $heroCallToAction = 'font-semibold mb-6 mt-2'
 
 const $highlight = 'text-white'
 
-const $heroResumeButton = 'btn btn-info btn-outline mx-2'
-const $disabledHeroResumeButton = 'btn btn-outline mx-2'
+const $heroResumeButton = 'btn btn-secondary btn-outline gap-2 mx-2 border-2 transform hover:scale-110 transition duration-300'
+const $heroLinkedinButton = 'btn btn-info btn-outline gap-2 mx-2 mt-2 md:mt-0 border-2 transform hover:scale-110 transition duration-300'
+const $heroGithubButton = 'btn-github gap-2 mx-2 mt-2 md:mt-0 transform hover:scale-110 transition duration-300'
 
-const $WorkTogetherButton = 'btn btn-secondary btn-outline mx-2'
-const $disabledWorkTogetherButton = 'btn btn-secondary btn-outline mx-2'
+const $disabledHeroResumeButton = 'btn mx-2'
