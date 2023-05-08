@@ -43,3 +43,17 @@ span {
         background-image: url('../assets/hero-bottom-xxlarge.svg');
     }
 }
+
+.btn-github {
+    @apply btn;
+    @apply border-2;
+    @apply btn-outline;
+    color: #691bf7;
+    border-color: #691bf7;
+}
+
+.btn-github:hover {
+    border-color: #691bf7;
+    background-color: #691bf7;
+    color: white;
+}
