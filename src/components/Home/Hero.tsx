@@ -54,7 +54,7 @@ const $heroContent = 'hero-content text-center'
 
 const $heroTitle = 'text-3xl sm:text-4xl md:text-5xl font-bold text-info'
 
-const $heroDescription = 'font-semibold max-w-3xl mx-auto mt-6 text-center'
+const $heroDescription = 'font-semibold max-w-3xl mx-auto mt-2 md:mt-6 text-center'
 const $heroCallToAction = 'font-semibold mb-6 mt-2'
 
 const $highlight = 'text-white'
