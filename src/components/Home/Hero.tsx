@@ -35,9 +35,7 @@ export default function Hero({ url }: HeroProps) {
               Linkedin
               <IconBrandLinkedin />
             </a>
-            <a className={$heroGithubButton} href='https://github.com/JoseScap' target='_blank' style={{
-              color: '#691bf7'
-            }}>
+            <a className={$heroGithubButton} href='https://github.com/JoseScap' target='_blank'>
               Github
               <IconBrandGithub />
             </a>
@@ -63,6 +61,6 @@ const $highlight = 'text-white'
 
 const $heroResumeButton = 'btn btn-secondary btn-outline gap-2 mx-2 border-2 transform hover:scale-110 transition duration-300'
 const $heroLinkedinButton = 'btn btn-info btn-outline gap-2 mx-2 mt-2 md:mt-0 border-2 transform hover:scale-110 transition duration-300'
-const $heroGithubButton = 'btn btn-primary btn-outline gap-2 mx-2 mt-2 md:mt-0 border-2 transform hover:scale-110 transition duration-300'
+const $heroGithubButton = 'btn-github gap-2 mx-2 mt-2 md:mt-0 transform hover:scale-110 transition duration-300'
 
 const $disabledHeroResumeButton = 'btn mx-2'
