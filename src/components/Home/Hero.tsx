@@ -1,4 +1,4 @@
-import { IconFileCertificate, IconBrandLinkedin, IconBrandGithub } from '@tabler/icons-react'
+import { IconFileInvoice, IconBrandLinkedin, IconBrandGithub } from '@tabler/icons-react'
 
 interface HeroProps {
   url?: string | undefined
@@ -25,7 +25,7 @@ export default function Hero({ url }: HeroProps) {
               url ? (
                 <a className={$heroResumeButton} href={url} target='_blank'>
                   Ver CV
-                  <IconFileCertificate />
+                  <IconFileInvoice />
                 </a>
               ) : (
                 <button className={$disabledHeroResumeButton} disabled>Sin CV</button>
@@ -35,7 +35,9 @@ export default function Hero({ url }: HeroProps) {
               Linkedin
               <IconBrandLinkedin />
             </a>
-            <a className={$heroGithubButton} href='https://github.com/JoseScap' target='_blank'>
+            <a className={$heroGithubButton} href='https://github.com/JoseScap' target='_blank' style={{
+              color: '#691bf7'
+            }}>
               Github
               <IconBrandGithub />
             </a>
@@ -59,8 +61,8 @@ const $heroCallToAction = 'font-semibold mb-6 mt-2'
 
 const $highlight = 'text-white'
 
-const $heroResumeButton = 'btn btn-secondary btn-outline gap-2 mx-2'
-const $heroLinkedinButton = 'btn btn-info btn-outline gap-2 mx-2 mt-2 md:mt-0'
-const $heroGithubButton = 'btn btn-primary btn-outline gap-2 mx-2 mt-2 md:mt-0'
+const $heroResumeButton = 'btn btn-secondary btn-outline gap-2 mx-2 border-2'
+const $heroLinkedinButton = 'btn btn-info btn-outline gap-2 mx-2 mt-2 md:mt-0 border-2'
+const $heroGithubButton = 'btn btn-primary btn-outline gap-2 mx-2 mt-2 md:mt-0 border-2'
 
 const $disabledHeroResumeButton = 'btn mx-2'
