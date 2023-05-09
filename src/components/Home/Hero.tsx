@@ -17,10 +17,7 @@ export default function Hero({ url }: HeroProps) {
             Springboot. Me enorgullezco de ofrecer soluciones de software eficientes y personalizadas que satisfacen
             las necesidades específicas de cada cliente.
           </p>
-          <p className={$heroCallToAction}>
-            Si estás buscando un <span className={$highlight}>desarrollador con habilidades técnicas y creativas</span>, ¡no dudes en contactarme!
-          </p>
-          <div>
+          <div className={$heroSocials}>
             {
               url ? (
                 <a className={$heroResumeButton} href={url} target='_blank'>
@@ -55,9 +52,10 @@ const $heroContent = 'hero-content text-center'
 const $heroTitle = 'text-3xl sm:text-4xl md:text-5xl font-bold text-info'
 
 const $heroDescription = 'font-semibold max-w-3xl mx-auto mt-2 md:mt-6 text-center'
-const $heroCallToAction = 'font-semibold mb-6 mt-2'
 
 const $highlight = 'text-white'
+
+const $heroSocials = 'mt-6'
 
 const $heroResumeButton = 'btn btn-secondary btn-outline gap-2 mx-2 border-2 transform hover:scale-110 transition duration-300'
 const $heroLinkedinButton = 'btn btn-info btn-outline gap-2 mx-2 mt-2 md:mt-0 border-2 transform hover:scale-110 transition duration-300'
