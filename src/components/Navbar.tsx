@@ -13,7 +13,7 @@ export default function Navbar() {
             <Link href="/" className='btn btn-ghost normal-case text-md hover:text-info'>Inicio</Link>
           </li>
           <li>
-            <Link href="/#projects" className='btn btn-ghost normal-case text-md hover:text-info'>Projects</Link>
+            <Link href="/#contact" className='btn btn-ghost normal-case text-md hover:text-info'>Contacto</Link>
           </li>
         </ul>
       </div>
