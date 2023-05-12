@@ -1,6 +1,6 @@
 import client from '@/graphql/client'
 import { resumeQuery, ResumeType, ResumeQueryType } from '@/graphql/resume'
-import { Hero, Projects, Contact } from '@/components/Home'
+import { Hero, Projects } from '@/components/Home'
 import { ProjectQueryType, projectQuery, ProjectType } from '@/graphql/projects'
 import Head from 'next/head'
 
