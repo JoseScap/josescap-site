@@ -17,6 +17,9 @@ export default function Hero({ url }: HeroProps) {
             Springboot. Me enorgullezco de ofrecer soluciones de software eficientes y personalizadas que satisfacen
             las necesidades específicas de cada cliente.
           </p>
+          <p className={$callToAction}>
+            Si estás buscando un <span className={$highlight}>desarrollador con habilidades técnicas y creativas</span>, ¡no dudes en contactarme!
+          </p>
           <div className={$heroSocials}>
             {
               url ? (
@@ -52,6 +55,7 @@ const $heroContent = 'hero-content text-center'
 const $heroTitle = 'text-3xl sm:text-4xl md:text-5xl font-bold text-info'
 
 const $heroDescription = 'font-semibold max-w-3xl mx-auto mt-2 md:mt-6 text-center'
+const $callToAction = 'font-semibold mb-6 mt-6 text-center'
 
 const $highlight = 'text-white'
 

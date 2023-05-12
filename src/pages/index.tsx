@@ -22,7 +22,6 @@ export default function Home({ resumes, projects }: HomeProps) {
       </Head>
       <Hero url={resumes?.docs[0]?.url}/>
       <Projects projects={projects}/>
-      <Contact url={resumes?.docs[0]?.url}/>
     </>
   )
 }
