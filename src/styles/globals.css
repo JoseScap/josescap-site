@@ -44,6 +44,20 @@ span {
     }
 }
 
+.btn-linkedin {
+    @apply btn;
+    @apply border-2;
+    @apply btn-outline;
+    color: #1293d2;
+    border-color: #1293d2;
+}
+
+.btn-linkedin:hover {
+    border-color: #1293d2;
+    background-color: #1293d2;
+    color: white;
+}
+
 .btn-github {
     @apply btn;
     @apply border-2;
@@ -55,5 +69,19 @@ span {
 .btn-github:hover {
     border-color: #691bf7;
     background-color: #691bf7;
+    color: white;
+}
+
+.btn-whatsapp {
+    @apply btn;
+    @apply border-2;
+    @apply btn-outline;
+    color: #25D366;
+    border-color: #25D366;
+}
+
+.btn-whatsapp:hover {
+    border-color: #25D366;
+    background-color: #25D366;
     color: white;
 }
