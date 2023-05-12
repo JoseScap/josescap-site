@@ -1,4 +1,4 @@
-import { IconFileInvoice, IconBrandLinkedin, IconBrandGithub } from '@tabler/icons-react'
+import { IconFileInvoice, IconBrandLinkedin, IconBrandGithub, IconBrandWhatsapp } from '@tabler/icons-react'
 
 interface HeroProps {
   url?: string | undefined
@@ -16,6 +16,9 @@ export default function Hero({ url }: HeroProps) {
             desarrollo de <span className={$highlight}>APIs REST y GraphQL</span>. Además, tengo amplios conocimientos en Javascript, NodeJS, Java y
             Springboot. Me enorgullezco de ofrecer soluciones de software eficientes y personalizadas que satisfacen
             las necesidades específicas de cada cliente.
+          </p>
+          <p className={$callToAction}>
+            Si estás buscando un <span className={$highlight}>desarrollador con habilidades técnicas y creativas</span>, ¡no dudes en contactarme!
           </p>
           <div className={$heroSocials}>
             {
@@ -36,6 +39,10 @@ export default function Hero({ url }: HeroProps) {
               Github
               <IconBrandGithub />
             </a>
+            <a className={$heroWhatsappButton} href='https://github.com/JoseScap' target='_blank'>
+              Whatsapp
+              <IconBrandWhatsapp />
+            </a>
           </div>
         </div>
       </div>
@@ -52,13 +59,15 @@ const $heroContent = 'hero-content text-center'
 const $heroTitle = 'text-3xl sm:text-4xl md:text-5xl font-bold text-info'
 
 const $heroDescription = 'font-semibold max-w-3xl mx-auto mt-2 md:mt-6 text-center'
+const $callToAction = 'font-semibold mb-6 mt-6 text-center'
 
 const $highlight = 'text-white'
 
 const $heroSocials = 'mt-6'
 
 const $heroResumeButton = 'btn btn-secondary btn-outline gap-2 mx-2 border-2 transform hover:scale-110 transition duration-300'
-const $heroLinkedinButton = 'btn btn-info btn-outline gap-2 mx-2 mt-2 md:mt-0 border-2 transform hover:scale-110 transition duration-300'
+const $heroLinkedinButton = 'btn-linkedin gap-2 mx-2 mt-2 md:mt-0 border-2 transform hover:scale-110 transition duration-300'
 const $heroGithubButton = 'btn-github gap-2 mx-2 mt-2 md:mt-0 transform hover:scale-110 transition duration-300'
+const $heroWhatsappButton = 'btn-whatsapp gap-2 mx-2 mt-2 md:mt-0 transform hover:scale-110 transition duration-300'
 
 const $disabledHeroResumeButton = 'btn mx-2'
